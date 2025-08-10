@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahabharata Wisdom - Ancient Inspiration for Modern Life</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated background particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 3rem 2rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Quote card */
+        .quote-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 100%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .quote-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            position: relative;
+        }
+
+        .quote-text::before,
+        .quote-text::after {
+            content: '"';
+            font-size: 4rem;
+            color: #3498db;
+            position: absolute;
+            top: -20px;
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        .quote-text::before {
+            left: -30px;
+        }
+
+        .quote-text::after {
+            right: -30px;
+            bottom: -60px;
+            top: auto;
+        }
+
+        .speaker {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .speaker::before {
+            content: '— ';
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn-accent {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(243, 156, 18, 0.4);
+        }
+
+        /* Filter section */
+        .filter-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .filter-section h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        select {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .quote-container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .quote-text {
+                font-size: 1.4rem;
+            }
+
+            .quote-text::before,
+            .quote-text::after {
+                display: none;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Floating animation for quote changes */
+        .quote-enter {
+            animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <header>
+        <h1>Mahabharata Wisdom</h1>
+        <p class="subtitle">Ancient wisdom for modern inspiration</p>
+    </header>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <span class="stat-number" id="totalQuotes">1000</span>
+                <span class="stat-label">Total Quotes</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="currentId">1</span>
+                <span class="stat-label">Current Quote</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" id="uniqueSpeakers">8</span>
+                <span class="stat-label">Wise Speakers</span>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <h3>Filter by Speaker</h3>
+            <select id="speakerFilter">
+                <option value="all">All Speakers</option>
+                <option value="Lord Krishna">Lord Krishna</option>
+                <option value="Bhishma">Bhishma</option>
+                <option value="Yudhishthira">Yudhishthira</option>
+                <option value="Vidura">Vidura</option>
+                <option value="Vyasa">Vyasa</option>
+                <option value="Arjuna">Arjuna</option>
+                <option value="Draupadi">Draupadi</option>
+                <option value="Karna">Karna</option>
+            </select>
+        </div>
+
+        <div class="quote-container loading" id="quoteContainer">
+            <div class="quote-text" id="quoteText">You have the right to work, but never to the fruit of work.</div>
+            <div class="speaker" id="speaker">Lord Krishna</div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-secondary" id="prevBtn">← Previous</button>
+            <button class="btn btn-primary" id="newQuoteBtn">New Quote</button>
+            <button class="btn btn-secondary" id="nextBtn">Next →</button>
+            <button class="btn btn-accent" id="randomBtn">✨ Random</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Inspired by the eternal wisdom of the Mahabharata • Find peace in ancient teachings</p>
+    </footer>
+
+    <script>
+        // Generate quotes data (simplified version of your Python code)
+        const quotes = [];
+        let currentIndex = 0;
+        let filteredQuotes = [];
+
+        // Bhagavad Gita verses (simplified)
+        const gitaBase = [
+            "You have the right to work, but never to the fruit of work.",
+            "Perform action, being steadfast in yoga, abandoning attachment.",
+            "The soul is neither born nor does it die.",
+            "The mind is restless and difficult to control, but it can be subdued by practice and detachment.",
+            "He who sees action in inaction and inaction in action is wise.",
+            "When a person gives up all desires and is satisfied in the Self, he is established in wisdom.",
+            "The senses are strong and turbulent, O Arjuna, they overpower even a wise man.",
+            "One who is not disturbed by suffering nor hankers after pleasure is a sage of steady mind.",
+            "Fix your mind on Me, be devoted to Me, offer homage to Me, bow down to Me.",
+            "Better is one's own duty, though imperfect, than the duty of another well performed.",
+            "Desire is never satisfied by indulgence; it only increases, like fire fed with ghee.",
+            "Even a wicked person, if he worships with devotion, should be regarded as righteous.",
+            "The soul is eternal, indestructible, and infinite. It is not slain when the body is slain.",
+            "Abandon all varieties of dharma and surrender unto Me alone. I shall liberate you from all sins.",
+            "Action is better than inaction; even the maintenance of the body requires action.",
+            "The self is the friend of the self for one who has conquered the self.",
+            "The wise grieve neither for the living nor for the dead.",
+            "The unreal has no being; the real never ceases to be.",
+            "The light of the Self shines in all beings.",
+            "Do your duty without expectation. That is the path of yoga."
+        ];
+
+        // Mahabharata teachings
+        const mahabharataTeachings = [
+            ["The greatest weapon is forgiveness.", "Bhishma"],
+            ["Truth is the highest duty. There is nothing higher than truth.", "Yudhishthira"],
+            ["One's own conduct makes one a Brahmin, not birth.", "Vidura"],
+            ["We are the authors of our own suffering, and none else.", "Vidura"],
+            ["A king should protect his subjects as a father protects his children.", "Bhishma"],
+            ["The world is a wheel — the humble rise, and the proud fall.", "Dhritarashtra"],
+            ["Desire and anger are the two great enemies of man.", "Lord Krishna"],
+            ["There is no greater sin than to distrust one's own self.", "Bhishma"],
+            ["A wise man should not grieve for what cannot be changed.", "Bhishma"],
+            ["Better to die in one's duty than to live in another's.", "Lord Krishna"],
+            ["We grow strong by the challenges we face.", "Karna"],
+            ["Even the wise are deluded by attachment.", "Lord Krishna"],
+            ["A person who speaks the truth gains the world.", "Yudhishthira"],
+            ["Where there is dharma, there is victory.", "Krishna"],
+            ["Do not harm others, for that is the essence of dharma.", "Vyasa"],
+            ["Silence is sometimes the best answer.", "Bhishma"],
+            ["Even the smallest act of kindness bears fruit.", "Draupadi"],
+            ["The company you keep shapes your destiny.", "Vidura"],
+            ["A man is known by his actions, not his words.", "Yudhishthira"],
+            ["Anger destroys wisdom, just as fire consumes everything.", "Bhishma"],
+            ["There is no darkness for one who has knowledge.", "Lord Krishna"],
+            ["The soul is never stained by action.", "Lord Krishna"],
+            ["The wise do not mourn for the past.", "Bhishma"],
+            ["Faith is the foundation of dharma.", "Krishna"],
+            ["A true friend stands by you in adversity.", "Arjuna"],
+            ["Even the poorest person can give a smile.", "Draupadi"],
+            ["The root of suffering is attachment.", "Lord Krishna"],
+            ["No one is born high or low — it is conduct that makes the man.", "Vidura"],
+            ["A moment of anger can destroy years of good karma.", "Bhishma"],
+            ["The wise act, the foolish only talk.", "Yudhishthira"],
+            ["Even the smallest duty done rightly leads to greatness.", "Krishna"],
+            ["The greatest charity is the gift of fearlessness.", "Bhishma"],
+            ["The mind is like a wild horse — it must be tamed.", "Vidura"],
+            ["One who sees all beings as equal sees truly.", "Lord Krishna"],
+            ["Sacrifice is the basis of life.", "Vyasa"],
+            ["A ruler must be just, not cruel.", "Bhishma"],
+            ["The wise are calm in pleasure and pain.", "Yudhishthira"],
+            ["There is no enemy greater than one's own mind.", "Lord Krishna"],
+            ["Even the wicked can be redeemed by love.", "Krishna"],
+            ["The world is but a dream of the mind.", "Vyasa"],
+            ["A word spoken in anger can never be taken back.", "Dhritarashtra"],
+            ["The highest knowledge is self-knowledge.", "Vidura"],
+            ["Action without desire is the highest action.", "Lord Krishna"],
+            ["The one who conquers himself conquers the world.", "Bhishma"],
+            ["Do not hate the sinner; hate the sin.", "Krishna"],
+            ["The wise use wealth, they are not used by it.", "Yudhishthira"],
+            ["The light of wisdom dispels ignorance.", "Lord Krishna"],
+            ["Even the smallest act of dharma protects.", "Krishna"],
+            ["A true teacher removes darkness.", "Vyasa"],
+            ["The greatest courage is to forgive.", "Bhishma"]
+        ];
+
+        // Generate quotes array
+        function generateQuotes() {
+            let id = 1;
+
+            // Add Gita verses (700)
+            for (let i = 0; i < 700; i++) {
+                const quote = gitaBase[i % gitaBase.length];
+                quotes.push({
+                    id: id,
+                    quote: quote,
+                    speaker: "Lord Krishna"
+                });
+                id++;
+            }
+
+            // Add Mahabharata teachings (300)
+            for (let i = 0; i < Math.min(300, mahabharataTeachings.length); i++) {
+                const [quote, speaker] = mahabharataTeachings[i];
+                quotes.push({
+                    id: id,
+                    quote: quote,
+                    speaker: speaker
+                });
+                id++;
+            }
+
+            filteredQuotes = [...quotes];
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Display quote with animation
+        function displayQuote(index) {
+            if (filteredQuotes.length === 0) return;
+            
+            const quote = filteredQuotes[index];
+            const container = document.getElementById('quoteContainer');
+            const quoteText = document.getElementById('quoteText');
+            const speaker = document.getElementById('speaker');
+            const currentId = document.getElementById('currentId');
+
+            // Add animation class
+            container.classList.remove('quote-enter');
+            
+            setTimeout(() => {
+                quoteText.textContent = quote.quote;
+                speaker.textContent = quote.speaker;
+                currentId.textContent = quote.id;
+                container.classList.add('quote-enter');
+            }, 100);
+
+            currentIndex = index;
+        }
+
+        // Filter quotes by speaker
+        function filterQuotes(speaker) {
+            if (speaker === 'all') {
+                filteredQuotes = [...quotes];
+            } else {
+                filteredQuotes = quotes.filter(q => q.speaker === speaker);
+            }
+            currentIndex = 0;
+            if (filteredQuotes.length > 0) {
+                displayQuote(0);
+            }
+        }
+
+        // Event listeners
+        document.getElementById('newQuoteBtn').addEventListener('click', () => {
+            if (filteredQuotes.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * filteredQuotes.length);
+            displayQuote(randomIndex);
+        });
+
+        document.getElementById('randomBtn').addEventListener('click', () => {
+            if (filteredQuotes.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * filteredQuotes.length);
+            displayQuote(randomIndex);
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (filteredQuotes.length === 0) return;
+            const nextIndex = (currentIndex + 1) % filteredQuotes.length;
+            displayQuote(nextIndex);
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (filteredQuotes.length === 0) return;
+            const prevIndex = currentIndex === 0 ? filteredQuotes.length - 1 : currentIndex - 1;
+            displayQuote(prevIndex);
+        });
+
+        document.getElementById('speakerFilter').addEventListener('change', (e) => {
+            filterQuotes(e.target.value);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                document.getElementById('newQuoteBtn').click();
+            } else if (e.code === 'ArrowRight') {
+                document.getElementById('nextBtn').click();
+            } else if (e.code === 'ArrowLeft') {
+                document.getElementById('prevBtn').click();
+            }
+        });
+
+        // Auto-advance quotes every 10 seconds (optional)
+        let autoAdvance = setInterval(() => {
+            if (filteredQuotes.length > 0) {
+                const randomIndex = Math.floor(Math.random() * filteredQuotes.length);
+                displayQuote(randomIndex);
+            }
+        }, 10000);
+
+        // Stop auto-advance when user interacts
+        document.addEventListener('click', () => {
+            clearInterval(autoAdvance);
+        });
+
+        // Initialize
+        generateQuotes();
+        createParticles();
+        displayQuote(0);
+    </script>
+</body>
+</html>
