@@ -1,5 +1,4 @@
-# Mahabaratha_quotes
-link-https://epicmahabharata-quotes.netlify.app/
+
 # Mahabharata Wisdom 🕉️
 
 A beautiful, interactive web application that presents timeless wisdom from the Mahabharata and Bhagavad Gita in a modern, engaging format.
